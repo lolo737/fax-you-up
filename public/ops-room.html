@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ops room — Fax You Up!</title>
+<meta name="description" content="Fax You Up! operations dashboard (private).">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161512" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fax You Up!">
+<meta property="og:title" content="Ops room — Fax You Up!">
+<meta property="og:description" content="Fax You Up! operations dashboard (private).">
+<meta property="og:url" content="https://faxyouup.netlify.app/ops-room.html">
+<meta property="og:image" content="https://faxyouup.netlify.app/img/og.png">
+<meta property="og:locale" content="en_IE">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
+<div class="strip" aria-hidden="true"><div class="wrap"><span>FAX YOU UP! &middot; P.01</span><span>TX OK</span><span>DUBLIN &harr; BERLIN</span><span>NO MACHINE REQUIRED</span></div></div>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><img class="brand-mark" src="/img/logo.svg" alt="" width="28" height="28"><span>Fax You Up<em>!</em></span></a>
+    <nav class="main" aria-label="Main"><ul><li><a href="/send.html" data-i18n="nav.send" class="cta">Send a fax</a></li><li><a href="/pricing.html" data-i18n="nav.pricing">Pricing</a></li><li><a href="/account.html" data-i18n="nav.account">Your account</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+<section>
+  <div class="wrap">
+    <h1>Ops room</h1>
+    <div id="admin-msg" class="notice error" role="alert" hidden></div>
+    <form id="login-form" class="narrow" hidden novalidate>
+      <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <div class="field"><label for="code">Authenticator code</label><input id="code" name="code" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" required></div>
+      <button class="btn" type="submit">Sign in</button>
+    </form>
+    <div id="dash" hidden>
+      <p class="hint">Updated <span id="generated"></span> &middot; <button class="btn ghost small" id="refresh" type="button">Refresh</button> <button class="btn ghost small" id="logout" type="button">Sign out</button></p>
+      <h2>Faxes</h2>
+      <div class="stats">
+        <div class="stat"><b id="s-delivered">0</b><span>Delivered</span></div>
+        <div class="stat"><b id="s-failed">0</b><span>Failed (final)</span></div>
+        <div class="stat"><b id="s-inflight">0</b><span>In flight / retrying</span></div>
+        <div class="stat"><b id="s-pages">0</b><span>Pages delivered</span></div>
+      </div>
+      <h2 class="mt-l">Money in</h2>
+      <div class="stats">
+        <div class="stat"><b id="s-money-week">€0</b><span>Last 7 days</span></div>
+        <div class="stat"><b id="s-money-total">€0</b><span>All time</span></div>
+        <div class="stat"><b id="s-money-fax">€0</b><span>Single faxes</span></div>
+        <div class="stat"><b id="s-money-sub">€0</b><span>Subscriptions</span></div>
+      </div>
+      <h2 class="mt-l">Recent faxes</h2>
+      <div class="table-scroll"><table id="t-faxes"><thead><tr><th>When</th><th>To</th><th class="num">Pages</th><th>Status</th><th class="num">Tries</th><th class="num">Paid</th><th>Note</th></tr></thead><tbody></tbody></table></div>
+      <h2 class="mt-l">Recent payments</h2>
+      <div class="table-scroll"><table id="t-payments"><thead><tr><th>When</th><th>Kind</th><th class="num">Amount</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <p><strong>Fax You Up!</strong> is a service of Eriu Technology Limited, Skerries, Co. Dublin, Ireland. Registered in Ireland, CRO no. 817401.<br>
+      Contact: <a href="mailto:hello@faxyouup.example">hello@faxyouup.example</a> &middot; &copy; <span data-year>2026</span></p>
+      <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+    </div>
+    <ul>
+      <li><a href="/pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="/terms.html" data-i18n="footer.terms">Terms</a></li>
+      <li><a href="/privacy.html" data-i18n="footer.privacy">Privacy</a></li>
+    </ul>
+  </div>
+</footer>
+<script type="module" src="/js/common.js"></script>
+<script type="module" src="/js/admin.js"></script>
+</body>
+</html>

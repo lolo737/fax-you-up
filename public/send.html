@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Send a fax online — Fax You Up!</title>
+<meta name="description" content="Upload a PDF and send it as a fax. See the exact price before you pay. Automatic retries and an email when it is delivered.">
+<link rel="canonical" href="https://faxyouup.netlify.app/send.html">
+<link rel="alternate" hreflang="en" href="https://faxyouup.netlify.app/send.html">
+<link rel="alternate" hreflang="x-default" href="https://faxyouup.netlify.app/send.html">
+<meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161512" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fax You Up!">
+<meta property="og:title" content="Send a fax online — Fax You Up!">
+<meta property="og:description" content="Upload a PDF and send it as a fax. See the exact price before you pay. Automatic retries and an email when it is delivered.">
+<meta property="og:url" content="https://faxyouup.netlify.app/send.html">
+<meta property="og:image" content="https://faxyouup.netlify.app/img/og.png">
+<meta property="og:locale" content="en_IE">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
+<div class="strip" aria-hidden="true"><div class="wrap"><span>FAX YOU UP! &middot; P.01</span><span>TX OK</span><span>DUBLIN &harr; BERLIN</span><span>NO MACHINE REQUIRED</span></div></div>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><img class="brand-mark" src="/img/logo.svg" alt="" width="28" height="28"><span>Fax You Up<em>!</em></span></a>
+    <nav class="main" aria-label="Main"><ul><li><a href="/send.html" data-i18n="nav.send" aria-current="page" class="cta">Send a fax</a></li><li><a href="/pricing.html" data-i18n="nav.pricing">Pricing</a></li><li><a href="/account.html" data-i18n="nav.account">Your account</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+<section>
+  <div class="wrap narrow">
+    <div id="send-intro">
+      <h1 data-i18n="send.title">Send a fax</h1>
+      <p class="lede" data-i18n="send.lede">PDF only, up to 5 MB. You'll see the price before you pay.</p>
+    </div>
+    <form id="send-form" novalidate>
+      <div class="field">
+        <span class="visually-hidden" id="file-label" data-i18n="send.file">Your document</span>
+        <label class="drop" id="drop" for="file">
+          <strong data-i18n="send.file.cta">Choose a PDF</strong>
+          <span data-i18n="send.file.hint">or drag it here</span>
+          <input id="file" name="file" type="file" accept="application/pdf,.pdf" required aria-labelledby="file-label">
+          <span class="file-name" id="file-name" aria-live="polite"></span>
+        </label>
+      </div>
+      <div class="field">
+        <label for="to" data-i18n="send.to">Fax number</label>
+        <input id="to" name="to" type="tel" inputmode="tel" autocomplete="off" placeholder="+49 30 1234567" required aria-describedby="to-hint">
+        <p class="hint" id="to-hint" data-i18n="send.to.hint">International format, e.g. +49 30 1234567 or +353 1 234 5678</p>
+      </div>
+      <div class="field">
+        <label for="email" data-i18n="send.email">Your email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-hint">
+        <p class="hint" id="email-hint" data-i18n="send.email.hint">For the delivery confirmation. No newsletters.</p>
+      </div>
+      <button class="btn" id="get-quote" type="submit" data-i18n="send.quote">Get the price</button>
+      <div id="send-msg" class="notice error" role="alert" hidden></div>
+      <div id="quote" class="quote-box" hidden aria-live="polite">
+        <h2 class="h-sm" data-i18n="send.quote.title">Your price</h2>
+        <p class="hint">To <strong id="quote-to"></strong></p>
+        <dl id="quote-lines"></dl>
+        <p class="notice ok" id="quote-promo" hidden data-i18n="send.quote.promo">First-fax promo applied</p>
+        <p class="notice ok" id="quote-sub" hidden data-i18n="send.quote.subscription">Covered by your subscription</p>
+        <div class="total"><span data-i18n="send.quote.total">Total</span><span id="quote-total"></span></div>
+        <p class="hint mt-s"><span data-i18n="send.terms">By paying you accept the Terms. Single faxes are not refundable once sent.</span> <a href="/terms.html">Terms</a></p>
+        <button class="btn signal big" id="pay" type="button" data-i18n="send.pay">Pay and send</button>
+      </div>
+    </form>
+    <div id="status" hidden>
+      <h2 data-i18n="status.title">Your fax</h2>
+      <div id="status-msg" class="notice info" role="status" hidden></div>
+      <p><span id="status-pill" class="status-pill">…</span></p>
+      <table>
+        <tbody>
+          <tr><th scope="row">To</th><td id="status-to"></td></tr>
+          <tr><th scope="row">Pages</th><td id="status-pages"></td></tr>
+          <tr><th scope="row">Attempts</th><td id="status-attempts"></td></tr>
+        </tbody>
+      </table>
+      <p class="notice error" id="status-reason" hidden></p>
+      <p class="mt-m"><a class="btn ghost" href="/send.html">Send another fax</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <p><strong>Fax You Up!</strong> is a service of Eriu Technology Limited, Skerries, Co. Dublin, Ireland. Registered in Ireland, CRO no. 817401.<br>
+      Contact: <a href="mailto:hello@faxyouup.example">hello@faxyouup.example</a> &middot; &copy; <span data-year>2026</span></p>
+      <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+    </div>
+    <ul>
+      <li><a href="/pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="/terms.html" data-i18n="footer.terms">Terms</a></li>
+      <li><a href="/privacy.html" data-i18n="footer.privacy">Privacy</a></li>
+    </ul>
+  </div>
+</footer>
+<script type="module" src="/js/common.js"></script>
+<script type="module" src="/js/send.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "fax-you-up",
+  "version": "1.0.0",
+  "description": "Fax You Up! — send a fax online without a fax machine. Pay per fax, or subscribe and cancel in one click.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "Niall O'Hara",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "dev": "netlify dev",
+    "test": "node --test tests/*.test.js",
+    "check:links": "node scripts/check-links.mjs",
+    "check": "npm test && npm run check:links",
+    "hash-password": "node scripts/hash-password.mjs",
+    "totp-setup": "node scripts/totp-setup.mjs"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.7.13",
+    "fflate": "^0.8.2",
+    "pdf-lib": "^1.17.1",
+    "stripe": "^19.3.1"
+  }
+}

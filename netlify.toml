@@ -1,0 +1,39 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+  command = "npm run check:links"
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  publish = "public"
+  port = 8888
+
+# The admin page is deliberately unlisted (robots.txt does not name it either);
+# the real protection is password + TOTP on /api/admin-*.
+[[headers]]
+  for = "/ops-room.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(self \"https://checkout.stripe.com\")"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self' https://checkout.stripe.com; frame-ancestors 'none'; base-uri 'self'"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

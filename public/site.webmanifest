@@ -1,0 +1,12 @@
+{
+  "name": "Fax You Up!",
+  "short_name": "Fax You Up!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f1e7",
+  "theme_color": "#f6f1e7",
+  "icons": [
+    { "src": "/img/logo.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

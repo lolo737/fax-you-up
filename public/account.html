@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your account — Fax You Up!</title>
+<meta name="description" content="Your faxes, receipts and subscription. Cancel your subscription with one button and download all your files.">
+<link rel="canonical" href="https://faxyouup.netlify.app/account.html">
+<link rel="alternate" hreflang="en" href="https://faxyouup.netlify.app/account.html">
+<link rel="alternate" hreflang="x-default" href="https://faxyouup.netlify.app/account.html">
+<meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161512" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fax You Up!">
+<meta property="og:title" content="Your account — Fax You Up!">
+<meta property="og:description" content="Your faxes, receipts and subscription. Cancel your subscription with one button and download all your files.">
+<meta property="og:url" content="https://faxyouup.netlify.app/account.html">
+<meta property="og:image" content="https://faxyouup.netlify.app/img/og.png">
+<meta property="og:locale" content="en_IE">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
+<div class="strip" aria-hidden="true"><div class="wrap"><span>FAX YOU UP! &middot; P.01</span><span>TX OK</span><span>DUBLIN &harr; BERLIN</span><span>NO MACHINE REQUIRED</span></div></div>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><img class="brand-mark" src="/img/logo.svg" alt="" width="28" height="28"><span>Fax You Up<em>!</em></span></a>
+    <nav class="main" aria-label="Main"><ul><li><a href="/send.html" data-i18n="nav.send" class="cta">Send a fax</a></li><li><a href="/pricing.html" data-i18n="nav.pricing">Pricing</a></li><li><a href="/account.html" data-i18n="nav.account" aria-current="page">Your account</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+<section>
+  <div class="wrap narrow">
+    <h1 data-i18n="account.title">Your account</h1>
+    <div id="account-msg" class="notice" role="status" hidden></div>
+    <div id="signin">
+      <p class="lede">No passwords. Enter the email you used and we'll send you a sign-in link.</p>
+      <form id="signin-form" novalidate>
+        <div class="field">
+          <label for="signin-email">Email</label>
+          <input id="signin-email" type="email" autocomplete="email" required>
+        </div>
+        <button class="btn" type="submit" data-i18n="account.signin">Email me a sign-in link</button>
+      </form>
+    </div>
+    <div id="account" hidden>
+      <p>Signed in as <strong id="who"></strong> &middot; <button class="btn ghost small" id="signout" type="button" data-i18n="account.signout">Sign out</button></p>
+      <div class="sub-panel">
+        <h2 data-i18n="account.subscription">Your Subscription</h2>
+        <p id="sub-body"></p>
+        <button class="btn big cancel" id="cancel" type="button" hidden data-i18n="account.cancel">Cancel now</button>
+        <button class="btn" id="subscribe" type="button" hidden>Start monthly plan</button>
+        <p class="hint mt-s">Cancelling takes effect immediately. No questions, no “are you sure you want to lose your benefits?”, no phone call.</p>
+      </div>
+      <h2 class="mt-l">Your faxes</h2>
+      <p><a class="btn ghost" id="download" href="/api/account-download" data-i18n="account.download">Download all my files (ZIP)</a></p>
+      <p id="no-faxes" class="hint" hidden>Nothing sent yet.</p>
+      <div class="table-scroll">
+        <table id="faxes" class="stack">
+          <thead><tr><th>Date</th><th>To</th><th class="num">Pages</th><th class="num">Paid</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <p><strong>Fax You Up!</strong> is a service of Eriu Technology Limited, Skerries, Co. Dublin, Ireland. Registered in Ireland, CRO no. 817401.<br>
+      Contact: <a href="mailto:hello@faxyouup.example">hello@faxyouup.example</a> &middot; &copy; <span data-year>2026</span></p>
+      <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+    </div>
+    <ul>
+      <li><a href="/pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="/terms.html" data-i18n="footer.terms">Terms</a></li>
+      <li><a href="/privacy.html" data-i18n="footer.privacy">Privacy</a></li>
+    </ul>
+  </div>
+</footer>
+<script type="module" src="/js/common.js"></script>
+<script type="module" src="/js/account.js"></script>
+</body>
+</html>
